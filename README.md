@@ -1,3 +1,3 @@
 # React Project
 
-This is a boilerplate react project using Gulp, Browserify, Babelify, and Less.
+A boilerplate react project using Gulp, Browserify, Babelify, and Less.
