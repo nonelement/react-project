@@ -27,7 +27,9 @@ var browserify = (files) => {
     return _browserify({
         entries: files,
         debug: true
-    }).transform([babelify]);
+    }).transform([babelify, {
+        presets: ['es2015']
+    }]);
 };
 
 gulp.task('less', () => {
