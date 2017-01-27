@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     clean = require('gulp-clean'),
     less = require('gulp-less'),
+    rename = require('gulp-rename'),
     babelify = require('babelify'),
     _browserify = require('browserify'),
     source = require('vinyl-source-stream'),
@@ -14,7 +15,7 @@ var paths = {
         dest: "./dist/js"
     },
     'less': {
-        src: ["./src/less/**/*.less"],
+        src: ["./src/less/**/main.less"],
         dest: "./dist/css"
     },
     'html': {
@@ -35,6 +36,9 @@ var browserify = (files) => {
 gulp.task('less', () => {
     return gulp.src(paths.less.src)
         .pipe(less())
+        .pipe(rename((path) => {
+            path.basename = "style";
+        }))
         .pipe(gulp.dest(paths.less.dest));
 });
 
